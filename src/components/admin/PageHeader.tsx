@@ -3,7 +3,7 @@ import { PlusCircle } from "lucide-react";
 interface PageHeaderProps {
   title: string;
   subtitle: string;
-  buttonText: string;
+  buttonText?: string;
   onButtonClick?: () => void;
 }
 
@@ -18,13 +18,15 @@ export function PageHeader({ title, subtitle, buttonText, onButtonClick }: PageH
           {subtitle}
         </p>
       </div>
-      <button 
-        onClick={onButtonClick}
-        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl flex items-center gap-2 font-medium transition-all shadow-lg shadow-blue-600/20"
-      >
-        <PlusCircle className="w-5 h-5" />
-        {buttonText}
-      </button>
+      {buttonText && (
+        <button 
+          onClick={onButtonClick}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl flex items-center gap-2 font-medium transition-all shadow-lg shadow-blue-600/20"
+        >
+          <PlusCircle className="w-5 h-5" />
+          {buttonText}
+        </button>
+      )}
     </div>
   );
 }
