@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏆 GOL MAIS BONITO
 
-## Getting Started
+O **Gol Mais Bonito** é uma plataforma moderna e intuitiva projetada para aumentar o engajamento em campeonatos de futebol, permitindo que torcedores votem nos gols mais épicos de cada rodada.
 
-First, run the development server:
+## 🚀 Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### ⚽ Para Torcedores
+- **Votação em Tempo Real:** Participe da decisão de quem marcou o melhor gol da rodada com apenas um clique.
+- **Galeria de Gols:** Assista aos vídeos dos lances mais bonitos diretamente na plataforma.
+- **Rankings Dinâmicos:** Acompanhe em tempo real quais atletas e gols estão liderando a preferência do público.
+- **Acesso Multiplataforma:** Interface totalmente responsiva, otimizada para smartphones e desktops.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🛠️ Para Organizadores (Painel Administrativo)
+- **Gestão de Campeonatos:** Crie e gerencie múltiplos torneios simultaneamente.
+- **Controle de Rodadas:** Organize as votações por etapas (rodadas), definindo datas de início e fim.
+- **Cadastro de Gols:** Vincule vídeos e informações dos atletas de forma simples e rápida.
+- **Dashboard de Engajamento:** Visualize métricas de votos e participação da torcida para gerar valor aos patrocinadores.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 💻 Stack Tecnológica
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+O projeto utiliza as tecnologias mais modernas do ecossistema Web:
 
-## Learn More
+- **Frontend:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Interface:** [React 19](https://react.dev/) com [Tailwind CSS 4](https://tailwindcss.com/)
+- **Backend & Auth:** [Supabase](https://supabase.com/) (SSR)
+- **Ícones:** [Lucide React](https://lucide.dev/)
+- **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Como Rodar o Projeto Especialmente
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Pré-requisitos
+- Node.js (v18 ou superior)
+- npm ou pnpm
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Instalação
 
-## Deploy on Vercel
+1. Clone o repositório
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Configure as variáveis de ambiente:
+   Crie um arquivo `.env.local` na raiz com suas credenciais do Supabase:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=sua_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anon
+   ```
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+A aplicação estará disponível em `http://localhost:3000`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Desenvolvido com foco em alta performance e experiência do usuário.

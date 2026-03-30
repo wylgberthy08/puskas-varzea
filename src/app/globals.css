@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-brand-blue: #1565FF;
+  --color-brand-blue-hover: #0047E1;
+  --color-bg-base: #0A0E1A;
+  --color-bg-card: #111827;
+  --color-border-subtle: #243351;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-text-primary: #FFFFFF;
+  
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+    border-color: var(--color-border-subtle);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-body), sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), sans-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  input::placeholder {
+    color: var(--color-text-muted);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(21, 101, 255, 0.4);
+  }
+  .card-shadow {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
 }
