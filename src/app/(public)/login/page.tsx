@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, Suspense } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { createClient } from '@/utils/supabase/client'
 
-export default function LoginPage() {
+function LoginContent() {
   const [loading, setLoading] = useState<string | null>(null)
   const searchParams = useSearchParams()
   const redirectToParam = searchParams.get('redirect')
@@ -40,9 +40,6 @@ export default function LoginPage() {
 
   return (
     <main className="relative min-h-screen w-full flex flex-col items-center justify-start md:justify-center bg-[#050810] selection:bg-[#1565FF]/30 pt-28 pb-12">
-      {/* Background with cinematic stadium feel */}
-
-
       {/* Header / Navbar */}
       <header className="absolute top-0 w-full z-20 flex items-center justify-between px-6 py-6 md:py-8 max-w-[1400px] mx-auto">
         <div className="flex items-center gap-3">
@@ -110,8 +107,6 @@ export default function LoginPage() {
               <Link href="#" className="text-[#94A3B8] hover:text-white transition-colors underline decoration-white/20 underline-offset-2">Política de Privacidade</Link>.
             </p>
           </div>
-
-
         </div>
 
         {/* Footer Links */}
@@ -126,5 +121,17 @@ export default function LoginPage() {
         </footer>
       </section>
     </main>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen w-full flex items-center justify-center bg-[#050810]">
+        <Loader2 className="w-10 h-10 animate-spin text-[#1565FF]" />
+      </main>
+    }>
+      <LoginContent />
+    </Suspense>
   )
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { useParams, useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Play, Share2, Trophy, TrendingUp, Loader2 } from "lucide-react";
 import Image from "next/image";
@@ -72,7 +72,7 @@ function CandidateImage({ src, gradient, alt }: { src: string; gradient: string;
 }
 
 // ── Page
-export default function ResultadosPage() {
+function ResultadosContent() {
   const { id } = useParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -430,5 +430,19 @@ export default function ResultadosPage() {
         title={selectedVideo?.title}
       />
     </div>
+  );
+}
+
+export default function ResultadosPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex flex-col bg-[#080d1a] text-white">
+        <div className="flex-grow flex items-center justify-center">
+          <Loader2 className="w-12 h-12 animate-spin text-[#1565FF]" />
+        </div>
+      </div>
+    }>
+      <ResultadosContent />
+    </Suspense>
   );
 }
