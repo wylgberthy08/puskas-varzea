@@ -231,10 +231,8 @@ export default function VotacaoPage() {
   };
 
   const handleGenericAction = () => {
-    requireAuth(() => {
-      // Logic for generic buttons like "Ver Regulamento" or "Compartilhar"
-      alert("Ação realizada com sucesso!");
-    });
+    // Logic for generic buttons like "Ver Regulamento"
+    alert("Manual do campeonato!");
   };
 
   if (loading) {

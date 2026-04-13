@@ -28,6 +28,8 @@ export function Header() {
     return () => subscription.unsubscribe();
   }, [supabase.auth]);
 
+
+
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.push("/");
@@ -71,16 +73,16 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-3">
-          {!loading && !user && (
+          {!user && (
             <Link href="/login">
               <button className="bg-brand-blue hover:bg-brand-blue-hover text-white px-6 py-2 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-brand-blue/20 active:scale-95">
                 Entrar
               </button>
             </Link>
           )}
-          
+
           {user && (
-            <button 
+            <button
               onClick={handleSignOut}
               className="p-2 text-text-muted hover:text-white transition-colors bg-bg-card rounded-full border border-border-subtle"
               title="Sair"

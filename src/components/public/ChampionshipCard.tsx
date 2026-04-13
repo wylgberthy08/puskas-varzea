@@ -61,7 +61,7 @@ export function ChampionshipCard({ id, title, description, image, status }: Cham
           }`}>
             {isVotacaoAberta && (
               <>
-                Entrar e Votar <ArrowRight className="h-4 w-4" />
+                Ver e Votar <ArrowRight className="h-4 w-4" />
               </>
             )}
             {isResultadosFinais && (

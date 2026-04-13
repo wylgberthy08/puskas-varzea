@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  Trophy, 
-  Users, 
-  Zap, 
-  Vote, 
-  ChevronRight, 
-  CheckCircle2, 
-  Settings, 
-  BarChart3 
+import {
+  Trophy,
+  Users,
+  Zap,
+  Vote,
+  ChevronRight,
+  CheckCircle2,
+  Settings,
+  BarChart3
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -42,11 +42,7 @@ export default function Home() {
                 Entrar
               </span>
             </Link>
-            <Link href="/admin/painel">
-              <Button className="bg-brand-blue hover:bg-brand-blue-hover text-white rounded-full px-6 font-semibold glow-blue">
-                Painel Admin
-              </Button>
-            </Link>
+
           </div>
         </div>
       </nav>
@@ -70,13 +66,13 @@ export default function Home() {
             <Zap className="w-4 h-4 text-brand-blue" />
             <span className="text-xs font-bold text-brand-blue tracking-wider uppercase">Votação em Tempo Real</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-black leading-tight mb-6 max-w-4xl mx-auto uppercase">
             Dê o brilho que seu <span className="text-brand-blue">campeonato</span> merece.
           </h1>
-          
+
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-            A plataforma definitiva para organizar, votar e premiar os gols mais épicos de cada rodada. 
+            A plataforma definitiva para organizar, votar e premiar os gols mais épicos de cada rodada.
             Crie engajamento real com sua torcida.
           </p>
 
@@ -160,7 +156,7 @@ export default function Home() {
               Transforme seu Campeonato em um Show.
             </h2>
             <p className="text-text-secondary text-lg mb-8 leading-relaxed">
-              Dê aos seus participantes uma experiência profissional. Gere valor para seus patrocinadores 
+              Dê aos seus participantes uma experiência profissional. Gere valor para seus patrocinadores
               e torne os momentos decisivos do seu torneio inesquecíveis.
             </p>
             <div className="flex items-center gap-6">
@@ -185,7 +181,7 @@ export default function Home() {
               Onde cada Voto é uma vibração.
             </h2>
             <p className="text-text-secondary text-lg mb-8 leading-relaxed">
-              Encontre o campeonato da sua região, assista aos vídeos dos gols mais bonitos e decida 
+              Encontre o campeonato da sua região, assista aos vídeos dos gols mais bonitos e decida
               quem merece o topo do ranking. Torça, comente e compartilhe o seu favorito.
             </p>
             <div className="grid grid-cols-2 gap-4">
@@ -203,7 +199,7 @@ export default function Home() {
           </div>
 
           <div>
-             <div className="relative p-1 rounded-3xl bg-gradient-to-br from-purple-500/30 to-brand-blue/10 card-shadow">
+            <div className="relative p-1 rounded-3xl bg-gradient-to-br from-purple-500/30 to-brand-blue/10 card-shadow">
               <div className="bg-bg-card rounded-[22px] p-8 md:p-12 overflow-hidden border border-white/5">
                 <div className="inline-block p-3 bg-purple-500/20 rounded-2xl mb-6">
                   <Users className="text-purple-400 w-6 h-6" />
@@ -242,7 +238,7 @@ export default function Home() {
             <Trophy className="text-brand-blue w-6 h-6" />
             <span className="font-display font-bold text-lg tracking-tight">GOL MAIS BONITO</span>
           </div>
-          
+
           <div className="flex gap-12 text-sm text-text-secondary">
             <div className="flex flex-col gap-2">
               <span className="text-white font-bold">Produto</span>
@@ -258,7 +254,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         <div className="container mx-auto px-4 pt-8 flex justify-between items-center text-xs text-text-muted">
           <p>© 2026 Gol Mais Bonito. Todos os direitos reservados.</p>
           <div className="flex gap-4">

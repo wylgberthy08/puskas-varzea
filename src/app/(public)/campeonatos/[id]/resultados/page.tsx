@@ -96,7 +96,7 @@ function ResultadosContent() {
   // Auth Protection Wrapper
   const requireAuth = useCallback((callback: () => void) => {
     if (!user) {
-      router.push(`/admin/login?redirect=${pathname}`);
+      router.push(`/login?redirect=${pathname}`);
       return;
     }
     callback();
