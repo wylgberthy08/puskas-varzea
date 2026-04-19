@@ -3,10 +3,16 @@ import { NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 
 export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url)
-  const code = searchParams.get('code')
-  // if "next" is in search params, use it as the redirection URL
-  const next = searchParams.get('next') ?? '/campeonatos'
+  const requestUrl = new URL(request.url)
+  const code = requestUrl.searchParams.get('code')
+  const next = requestUrl.searchParams.get('next') ?? '/campeonatos'
+
+  // Determinar a origem de forma robusta para produção (especialmente atrás de proxies)
+  const forwardedHost = request.headers.get('x-forwarded-host')
+  const forwardedProto = request.headers.get('x-forwarded-proto')
+  const host = forwardedHost ?? request.headers.get('host') ?? requestUrl.host
+  const protocol = forwardedProto ?? (requestUrl.protocol === 'https:' ? 'https' : 'http')
+  const origin = `${protocol}://${host}`
 
   if (code) {
     const supabase = await createClient()
