@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { createClient } from '@/utils/supabase/client'
+import { getURL } from '@/utils/url'
 
 function LoginContent() {
   const [loading, setLoading] = useState<string | null>(null)
@@ -20,7 +21,7 @@ function LoginContent() {
     const supabase = createClient()
     
     // Construct the callback URL with the next parameter if available
-    const callbackUrl = new URL(`${window.location.origin}/auth/callback`)
+    const callbackUrl = new URL(`${getURL()}auth/callback`)
     if (redirectToParam) {
       callbackUrl.searchParams.set('next', redirectToParam)
     }
