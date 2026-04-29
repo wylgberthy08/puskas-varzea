@@ -11,8 +11,13 @@ import {
   BarChart3
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { createClient } from "@/utils/supabase/server";
 
-export default function Home() {
+
+export default async function Home() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  console.log(user)
   return (
     <div className="flex flex-col min-h-screen bg-bg-base">
       {/* Navbar */}
@@ -37,12 +42,13 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="/login">
-              <span className="text-sm font-medium text-text-secondary hover:text-white transition-colors cursor-pointer mr-2">
-                Entrar
-              </span>
-            </Link>
-
+            {!user && (
+              <Link href="/login">
+                <span className="text-sm font-medium text-text-secondary hover:text-white transition-colors cursor-pointer mr-2">
+                  Entrar
+                </span>
+              </Link>
+            )}
           </div>
         </div>
       </nav>

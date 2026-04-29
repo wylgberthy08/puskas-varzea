@@ -25,20 +25,19 @@ export function ChampionshipCard({ id, title, description, image, status }: Cham
         {/* Background Image with Overlay */}
         <div className="relative h-48 w-full overflow-hidden">
           <Image
-            src={image}
             alt={title}
+            src={image}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-bg-card/40 to-transparent" />
-          
+
           {/* Status Badge */}
           <div className="absolute top-4 left-4">
-            <span className={`text-[10px] font-bold px-2 py-1 rounded tracking-wider ${
-              isVotacaoAberta ? "bg-green-500/90 text-white" : 
-              isResultadosFinais ? "bg-brand-blue/90 text-white" : 
-              "bg-slate-500/90 text-white"
-            }`}>
+            <span className={`text-[10px] font-bold px-2 py-1 rounded tracking-wider ${isVotacaoAberta ? "bg-green-500/90 text-white" :
+                isResultadosFinais ? "bg-brand-blue/90 text-white" :
+                  "bg-slate-500/90 text-white"
+              }`}>
               {status}
             </span>
           </div>
@@ -54,11 +53,10 @@ export function ChampionshipCard({ id, title, description, image, status }: Cham
           </p>
 
           {/* Dynamic Button (Visual Only since wrapped in Link) */}
-          <div className={`w-full py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${
-            isVotacaoAberta ? "bg-brand-blue text-white hover:bg-brand-blue-hover shadow-lg shadow-brand-blue/20" :
-            isResultadosFinais ? "bg-bg-card/50 text-white border border-border-subtle hover:bg-border-subtle" :
-            "bg-transparent text-text-muted border border-border-subtle hover:text-white"
-          }`}>
+          <div className={`w-full py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${isVotacaoAberta ? "bg-brand-blue text-white hover:bg-brand-blue-hover shadow-lg shadow-brand-blue/20" :
+              isResultadosFinais ? "bg-bg-card/50 text-white border border-border-subtle hover:bg-border-subtle" :
+                "bg-transparent text-text-muted border border-border-subtle hover:text-white"
+            }`}>
             {isVotacaoAberta && (
               <>
                 Ver e Votar <ArrowRight className="h-4 w-4" />
