@@ -99,7 +99,7 @@ export default async function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 border-y border-border-subtle bg-bg-card/30 backdrop-blur-sm">
+      {/*    <section className="py-12 border-y border-border-subtle bg-bg-card/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -120,7 +120,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Dual Content Section */}
       <section id="organizadores" className="py-24 container mx-auto px-4">
