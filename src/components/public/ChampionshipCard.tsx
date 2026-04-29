@@ -25,7 +25,7 @@ export function ChampionshipCard({ id, title, description, image, status }: Cham
         {/* Background Image with Overlay */}
         <div className="relative h-48 w-full overflow-hidden">
           <Image
-            alt={title}
+            alt="Imagem da competição"
             src={image}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -35,8 +35,8 @@ export function ChampionshipCard({ id, title, description, image, status }: Cham
           {/* Status Badge */}
           <div className="absolute top-4 left-4">
             <span className={`text-[10px] font-bold px-2 py-1 rounded tracking-wider ${isVotacaoAberta ? "bg-green-500/90 text-white" :
-                isResultadosFinais ? "bg-brand-blue/90 text-white" :
-                  "bg-slate-500/90 text-white"
+              isResultadosFinais ? "bg-brand-blue/90 text-white" :
+                "bg-slate-500/90 text-white"
               }`}>
               {status}
             </span>
@@ -54,8 +54,8 @@ export function ChampionshipCard({ id, title, description, image, status }: Cham
 
           {/* Dynamic Button (Visual Only since wrapped in Link) */}
           <div className={`w-full py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${isVotacaoAberta ? "bg-brand-blue text-white hover:bg-brand-blue-hover shadow-lg shadow-brand-blue/20" :
-              isResultadosFinais ? "bg-bg-card/50 text-white border border-border-subtle hover:bg-border-subtle" :
-                "bg-transparent text-text-muted border border-border-subtle hover:text-white"
+            isResultadosFinais ? "bg-bg-card/50 text-white border border-border-subtle hover:bg-border-subtle" :
+              "bg-transparent text-text-muted border border-border-subtle hover:text-white"
             }`}>
             {isVotacaoAberta && (
               <>

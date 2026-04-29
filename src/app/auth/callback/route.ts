@@ -8,8 +8,8 @@ export async function GET(request: Request) {
   const code = requestUrl.searchParams.get('code')
   const next = requestUrl.searchParams.get('next') ?? '/campeonatos'
 
-  // Determinar a origem de forma robusta
-  const origin = getURL().replace(/\/$/, '') // Remove trailing slash if present for URL constructor
+  // Determinar a origem de forma robusta diretamente da requisição
+  const origin = requestUrl.origin
 
   if (code) {
     const supabase = await createClient()

@@ -43,7 +43,7 @@ export default function CampeonatosPage() {
             Escolha um <span className="text-brand-blue">Campeonato</span>
           </h1>
           <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed">
-            Selecione a competição e vote nos gols mais memoráveis da temporada. 
+            Selecione a competição e vote nos gols mais memoráveis da temporada.
             Sua voz define o vencedor do Puskás nacional.
           </p>
         </section>
@@ -58,6 +58,7 @@ export default function CampeonatosPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {championships.map((championship) => (
                 <ChampionshipCard
+
                   key={championship.id}
                   id={championship.id}
                   title={championship.nome}
