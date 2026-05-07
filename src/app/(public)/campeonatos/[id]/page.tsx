@@ -269,6 +269,8 @@ export default function VotacaoPage() {
     ? Math.round((maxVotes / totalVotesCount) * 100) 
     : 0;
 
+  const displayedCandidates = votingState === 'CLOSED' ? topCandidates : candidates;
+
   return (
     <div className="min-h-screen flex flex-col bg-[#080d1a] text-white">
       <VotingHeader />
@@ -340,10 +342,16 @@ export default function VotacaoPage() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4">
           <div>
             <h2 className="text-2xl md:text-3xl font-display font-black uppercase tracking-tight">
-              CANDIDATOS SELECIONADOS
+              {votingState === 'CLOSED' 
+                ? (isTie ? "Vencedores da Rodada" : "Vencedor da Rodada") 
+                : "CANDIDATOS SELECIONADOS"}
             </h2>
             <p className="text-white/40 text-sm mt-1">
-              {votingState === 'UPCOMING' ? "Aqueça os motores, a votação começa logo!" : "Gols espetaculares desta rodada"}
+              {votingState === 'UPCOMING' 
+                ? "Aqueça os motores, a votação começa logo!" 
+                : votingState === 'CLOSED' 
+                  ? "Resultado final baseado na preferência da galera" 
+                  : "Gols espetaculares desta rodada"}
             </p>
           </div>
 
@@ -367,9 +375,9 @@ export default function VotacaoPage() {
           )}
         </div>
 
-        {candidates.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {candidates.map((c, index) => (
+        {displayedCandidates.length > 0 ? (
+          <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 ${votingState === 'CLOSED' && displayedCandidates.length === 1 ? 'md:!grid-cols-1 max-w-2xl mx-auto' : ''}`}>
+            {displayedCandidates.map((c, index) => (
                 <CandidateCard
                   key={c.id}
                   number={index + 1}
@@ -425,7 +433,9 @@ export default function VotacaoPage() {
                   <p className="text-white/30 text-xs uppercase tracking-widest mt-0.5">Compartilhamentos</p>
                 </div>
                 <div>
-                  <p className="text-green-400 font-black text-xl">Ativo</p>
+                  <p className={`font-black text-xl ${votingState === 'CLOSED' ? 'text-red-400' : 'text-green-400'}`}>
+                    {votingState === 'CLOSED' ? 'Encerrada' : 'Ativo'}
+                  </p>
                   <p className="text-white/30 text-xs uppercase tracking-widest mt-0.5">Status da Rodada</p>
                 </div>
               </div>
