@@ -260,9 +260,13 @@ export default function VotacaoPage() {
     );
   }
 
-  const leadingCandidate = candidates.length > 0 ? candidates.reduce((a, b) => (a.votes >= b.votes ? a : b)) : null;
-  const leadingPercentage = leadingCandidate && totalVotesCount > 0 
-    ? Math.round((leadingCandidate.votes / totalVotesCount) * 100) 
+  const maxVotes = candidates.length > 0 ? Math.max(...candidates.map(c => c.votes)) : 0;
+  const topCandidates = candidates.filter(c => c.votes === maxVotes);
+  const isTie = maxVotes > 0 && topCandidates.length > 1;
+  const leadingCandidate = topCandidates.length > 0 ? topCandidates[0] : null;
+
+  const leadingPercentage = maxVotes > 0 && totalVotesCount > 0 
+    ? Math.round((maxVotes / totalVotesCount) * 100) 
     : 0;
 
   return (
@@ -412,7 +416,7 @@ export default function VotacaoPage() {
                   <div>
                     <p className="text-[#1565FF] font-black text-xl">{leadingPercentage}%</p>
                     <p className="text-white/30 text-xs uppercase tracking-widest mt-0.5">
-                      {leadingCandidate.playerName} Liderando
+                      {isTie ? "Votação Empatada" : `${leadingCandidate.playerName} Liderando`}
                     </p>
                   </div>
                 )}
@@ -445,7 +449,9 @@ export default function VotacaoPage() {
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <span className="text-3xl font-black text-white">{leadingPercentage}%</span>
-                <span className="text-[10px] text-white/40 uppercase tracking-widest text-center leading-tight">Líder Atual</span>
+                <span className="text-[10px] text-white/40 uppercase tracking-widest text-center leading-tight">
+                  {isTie ? "Empate" : "Líder Atual"}
+                </span>
               </div>
             </div>
 
